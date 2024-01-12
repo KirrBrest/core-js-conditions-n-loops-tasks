@@ -71,8 +71,14 @@ function getMaxNumber(a, b, c) {
  * {x: 1, y: 1}, {x: 2, y: 8} => false
  * {x: 1, y: 1}, {x: 2, y: 8} => false
  */
-function canQueenCaptureKing(/* queen, king */) {
-  throw new Error('Not implemented');
+function canQueenCaptureKing(queen, king) {
+  let result = false;
+  if (queen.x === king.x || queen.y === king.y) {
+    result = true;
+  } else if (Math.abs(queen.x - king.x) === Math.abs(queen.y - king.y)) {
+    result = true;
+  }
+  return result;
 }
 
 /**
@@ -157,8 +163,65 @@ function convertToRomanNumerals(/* num */) {
  *  '10,5'    => 'one zero point five'
  *  '1950.2'  => 'one nine five zero point two'
  */
-function convertNumberToString(/* numberStr */) {
-  throw new Error('Not implemented');
+function convertNumberToString(numberStr) {
+  const arr = [];
+  let result = '';
+  for (let i = 0; i < numberStr.length; i += 1) {
+    switch (numberStr[i]) {
+      case '0':
+        arr[arr.length] = 'zero';
+        break;
+      case '1':
+        arr[arr.length] = 'one';
+        break;
+      case '2':
+        arr[arr.length] = 'two';
+        break;
+      case '3':
+        arr[arr.length] = 'three';
+        break;
+      case '4':
+        arr[arr.length] = 'four';
+        break;
+      case '5':
+        arr[arr.length] = 'five';
+        break;
+      case '6':
+        arr[arr.length] = 'six';
+        break;
+      case '7':
+        arr[arr.length] = 'seven';
+        break;
+      case '8':
+        arr[arr.length] = 'eight';
+        break;
+      case '9':
+        arr[arr.length] = 'nine';
+        break;
+      case '.':
+        arr[arr.length] = 'point';
+        break;
+      case ',':
+        arr[arr.length] = 'point';
+        break;
+      case '-':
+        arr[arr.length] = 'minus';
+        break;
+      default:
+    }
+  }
+  console.log(arr);
+  for (let i = 0; i < numberStr.length; i += 1) {
+    if (arr.length === 1) {
+      result += `${arr[i]}`;
+    } else if (arr.length > 1 && i < arr.length - 1) {
+      result += `${arr[i]} `;
+    } else if (arr.length > 1 && i === arr.length - 1) {
+      result += `${arr[i]}`;
+    }
+  }
+  console.log(result);
+  return result;
 }
 
 /**
@@ -314,6 +377,36 @@ function rotateMatrix(/* matrix */) {
  *  [-2, 9, 5, -3]  => [-3, -2, 5, 9]
  */
 function sortByAsc(/* arr */) {
+  // const arr1 = arr;
+  // for (let i = 0; i < arr1.length; i += 1) {
+  //   for (let j = i; j < arr1.length; j += 1) {
+  //     if (arr1[i] > arr1[j]) {
+  //       const digit = arr1[i];
+  //       arr1[i] = arr1[j];
+  //       arr1[j] = digit;
+  //     }
+  //   }
+  // }
+  // console.log(arr1);
+  // return arr1;
+  // ====================================
+
+  // if (arr.length < 2) {
+  //   return arr;
+  // }
+  // const n = arr[0];
+  // const left = [];
+  // const right = [];
+
+  // for (let i = 1; i < arr.length; i += 1) {
+  //   if (n > arr[i]) {
+  //     left.push(arr[i]);
+  //   } else {
+  //     right.push(arr[i]);
+  //   }
+  // }
+  // return sortByAsc(left).concat(n, sortByAsc(right));
+
   throw new Error('Not implemented');
 }
 
