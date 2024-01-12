@@ -210,7 +210,7 @@ function convertNumberToString(numberStr) {
       default:
     }
   }
-  console.log(arr);
+
   for (let i = 0; i < numberStr.length; i += 1) {
     if (arr.length === 1) {
       result += `${arr[i]}`;
@@ -220,7 +220,7 @@ function convertNumberToString(numberStr) {
       result += `${arr[i]}`;
     }
   }
-  console.log(result);
+
   return result;
 }
 
