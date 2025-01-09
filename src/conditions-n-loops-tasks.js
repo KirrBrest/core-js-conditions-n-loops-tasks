@@ -376,40 +376,45 @@ function getBalanceIndex(arr) {
  *          [10, 9,  8,  7]
  *        ]
  */
-function getSpiralMatrix(/* size */) {
-  // const arr = [];
-  // let row = 0;
-  // let col = 0;
-  // let rowEnd = size - 1;
-  // let colEnd = size - 1;
-  // let counter = 1;
-  // while (col <= colEnd && row <= rowEnd) {
-  //   for (let i = col; i <= colEnd; i += 1) {
-  //     arr[row][i] = counter;
-  //     counter += 1;
-  //   }
-  //   row += 1;
+function getSpiralMatrix(size) {
+  const arr = new Array(size - 1);
 
-  //   for (let i = row; i <= rowEnd; i += 1) {
-  //     arr[i][colEnd] = counter;
-  //     counter += 1;
-  //   }
-  //   colEnd -= 1;
+  let row = 0;
+  let col = 0;
+  let rowEnd = size - 1;
+  let colEnd = size - 1;
+  let counter = 1;
+  for (let i = 0; i <= rowEnd; i += 1) {
+    const arrRow = new Array(size - 1);
+    for (let j = 0; j <= colEnd; j += 1) {
+      arrRow[j] = 0;
+    }
+    arr[i] = arrRow;
+  }
+  while (col <= colEnd && row <= rowEnd) {
+    for (let i = col; i <= colEnd; i += 1) {
+      arr[row][i] = counter;
+      counter += 1;
+    }
+    row += 1;
+    for (let i = row; i <= rowEnd; i += 1) {
+      arr[i][colEnd] = counter;
+      counter += 1;
+    }
+    colEnd -= 1;
+    for (let i = colEnd; i >= col; i -= 1) {
+      arr[rowEnd][i] = counter;
+      counter += 1;
+    }
+    rowEnd -= 1;
+    for (let i = rowEnd; i >= row; i -= 1) {
+      arr[i][col] = counter;
+      counter += 1;
+    }
+    col += 1;
+  }
 
-  //   for (let i = colEnd; i >= col; i -= 1) {
-  //     arr[rowEnd][i] = counter;
-  //     counter += 1;
-  //   }
-  //   rowEnd -= 1;
-
-  //   for (let i = rowEnd; i >= row; i -= 1) {
-  //     arr[i][col] = counter;
-  //     counter += 1;
-  //   }
-  //   col += 1;
-  // }
-  // return arr;
-  throw new Error('Not implemented');
+  return arr;
 }
 
 /**
