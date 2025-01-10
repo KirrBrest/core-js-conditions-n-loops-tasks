@@ -450,38 +450,19 @@ function rotateMatrix(/* matrix */) {
  *  [2, 9, 5, 9]    => [2, 5, 9, 9]
  *  [-2, 9, 5, -3]  => [-3, -2, 5, 9]
  */
-function sortByAsc(/* arr */) {
-  // const arr1 = arr;
-  // for (let i = 0; i < arr1.length; i += 1) {
-  //   for (let j = i; j < arr1.length; j += 1) {
-  //     if (arr1[i] > arr1[j]) {
-  //       const digit = arr1[i];
-  //       arr1[i] = arr1[j];
-  //       arr1[j] = digit;
-  //     }
-  //   }
-  // }
-  // console.log(arr1);
-  // return arr1;
-  // ====================================
+function sortByAsc(arr) {
+  const arr1 = arr;
+  for (let i = 0; i < arr1.length; i += 1) {
+    for (let j = i; j < arr1.length; j += 1) {
+      if (arr1[i] > arr1[j]) {
+        const digit = arr1[i];
+        arr1[i] = arr1[j];
+        arr1[j] = digit;
+      }
+    }
+  }
 
-  // if (arr.length < 2) {
-  //   return arr;
-  // }
-  // const n = arr[0];
-  // const left = [];
-  // const right = [];
-
-  // for (let i = 1; i < arr.length; i += 1) {
-  //   if (n > arr[i]) {
-  //     left.push(arr[i]);
-  //   } else {
-  //     right.push(arr[i]);
-  //   }
-  // }
-  // return sortByAsc(left).concat(n, sortByAsc(right));
-
-  throw new Error('Not implemented');
+  return arr1;
 }
 
 /**
